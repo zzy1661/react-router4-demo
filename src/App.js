@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";	
+import { BrowserRouter as Router, Route, Link, Redirect, Switch } from "react-router-dom";	
 import './App.css';
 import Basic from './examples/Basic';
+import Params from './examples/Params';
 class App extends Component {
   render() {
     return (
@@ -13,14 +14,18 @@ class App extends Component {
 				        <li>
 				          <Link to="/basic">basic</Link>
 				        </li>
-				        
+				        <li>
+				          <Link to="/params">url params</Link>
+				        </li>
 				      </ul>
 				
 				      <hr />
-				      
-							<Route exact path="/" render={ ()=> ( <Redirect to="/basic" />)} />
-				      <Route exact path="/basic" component={Basic} />
-				      
+				      <Switch>
+					      <Route exact path="/" render={ ()=> ( <Redirect to="/basic" />)} />
+					      <Route path="/basic" component={Basic} />
+					      <Route path="/params" component={Params} />
+				      </Switch>
+							
 				    </div>
 				  </Router>
         
