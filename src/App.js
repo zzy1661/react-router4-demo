@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link, Redirect, Switch } from "react-router-dom";	
+import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";	
 import './App.css';
 import Basic from './examples/Basic';
 import Params from './examples/Params';
 import Auth from './examples/Auth';
+import RouterLink from './examples/CustomLink';
 class App extends Component {
   render() {
     return (
@@ -11,16 +12,17 @@ class App extends Component {
       <div className="App">
 	      <Router>
 				    <div>
-				      <ul>
+				      <ul className="nav">
 				        <li>
-				          <Link to="/basic">basic</Link>
+				          <RouterLink to="/basic" exact={true} label="basic"></RouterLink>
 				        </li>
 				        <li>
-				          <Link to="/params">url params</Link>
+				          <RouterLink to="/params" exact={true} label="url params"></RouterLink>
 				        </li>
 				        <li>
-				          <Link to="/auth">Redirects (Auth)</Link>
+				          <RouterLink to="/auth" exact={true} label="Redirects (Auth)">Redirects (Auth)</RouterLink>
 				        </li>
+				        
 				      </ul>
 				
 				      <hr />
