@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
-import { Route,  Link } from "react-router-dom";
+import { BrowserRouter as Router, Route,  Link } from "react-router-dom";
 import './index.css';
-// import Technology from '../technology';
-// import Book from '../book';
-// import Author from '../author';
-// const topics = {
-//   technology: Technology,
-//   book: Book,
-//   author: Author
-// }
+import Technology from '../technology';
+import Book from '../book';
+import Author from '../author';
+const topics = {
+  technology: Technology,
+  book: Book,
+  author: Author
+}
 class Index extends Component {
 
   render() {
     
     return (
+      <Router>
       <div className="index">
       	<header>
 	        <nav className="nav">
@@ -22,30 +23,23 @@ class Index extends Component {
 				   		<Link to={`${this.props.match.url}/author`}>author</Link>
 	        </nav>
         </header>
-        <Route path={`${this.props.match.url}/author`} 
-          component={Topic}
+        <Route path={`${this.props.match.url}/:topic`} 
+          render={({match})=>{
+              var Comp = topics[match.params.topic];
+              return <Comp/>
+            }
+          }
         />
         <Route
           exact
           path={this.props.match.url}
           render={() =>  (<article>this is index page</article>)}
         />
-        {/* <Router>
-          <Switch>
-            <Route path="/index" exact></Route>
-            <Route path="/index/technology" component={Technology}></Route>
-            <Route path="/index/book" component={Book}></Route>
-            <Route path="/index/author" component={Author}></Route>
-          </Switch> 
-        </Router>
-        <article>this is index page</article> */}
+       
       </div>
+      </Router>
     );
   }
 }
-const Topic = ({ match }) => (
-  <div>
-    <h3>sss{match.params.topicId}</h3>
-  </div>
-);
+
 export default Index;
