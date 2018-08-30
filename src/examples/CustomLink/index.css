@@ -1,0 +1,7 @@
+.router-link > span {
+	display: inline-block;
+	width: 20px;
+}
+.router-link.active a {
+	font-style: italic;
+}
