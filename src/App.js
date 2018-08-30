@@ -5,6 +5,7 @@ import Basic from './examples/Basic';
 import Params from './examples/Params';
 import Auth from './examples/Auth';
 import RouterLink from './examples/CustomLink';
+import NoMatch from './examples/NoMatch';
 class App extends Component {
   render() {
     return (
@@ -20,9 +21,11 @@ class App extends Component {
 				          <RouterLink to="/params" exact={true} label="url params"></RouterLink>
 				        </li>
 				        <li>
-				          <RouterLink to="/auth" exact={true} label="Redirects (Auth)">Redirects (Auth)</RouterLink>
+				          <RouterLink to="/auth" exact={true} label="Redirects (Auth)"></RouterLink>
 				        </li>
-				        
+				        <li>
+				          <RouterLink to="/404" exact={false} label="404"></RouterLink>
+				        </li>
 				      </ul>
 				
 				      <hr />
@@ -31,6 +34,7 @@ class App extends Component {
 					      <Route path="/basic" component={Basic} />
 					      <Route path="/params" component={Params} />
 					      <Route path="/auth" component={Auth} />
+					      <Route component={NoMatch} />
 				      </Switch>
 							
 				    </div>
