@@ -12,9 +12,7 @@ const topics = {
 class Index extends Component {
 
   render() {
-    
     return (
-      <Router>
       <div className="index">
       	<header>
 	        <nav className="nav">
@@ -35,9 +33,7 @@ class Index extends Component {
           path={this.props.match.url}
           render={() =>  (<article>this is index page</article>)}
         />
-       
       </div>
-      </Router>
     );
   }
 }
