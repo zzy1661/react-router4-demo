@@ -4,7 +4,8 @@ import {
   Route,
   Link,
   Redirect,
-  withRouter
+  withRouter,
+  Prompt
 } from "react-router-dom";
 
 
@@ -51,6 +52,12 @@ const AuthButton = withRouter(
         >
           Sign out
         </button>
+        <Prompt
+          when={true}
+          message={location =>
+            `确定退出,进入${location.pathname}?`
+          }
+        />
       </p>
     ) : (
       <p>当前状态尚未登陆,更多信息可在登陆后查看!</p>
