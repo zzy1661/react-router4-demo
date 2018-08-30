@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link, Redirect, Switch } from "react-ro
 import './App.css';
 import Basic from './examples/Basic';
 import Params from './examples/Params';
+import Auth from './examples/Auth';
 class App extends Component {
   render() {
     return (
@@ -17,6 +18,9 @@ class App extends Component {
 				        <li>
 				          <Link to="/params">url params</Link>
 				        </li>
+				        <li>
+				          <Link to="/auth">Redirects (Auth)</Link>
+				        </li>
 				      </ul>
 				
 				      <hr />
@@ -24,6 +28,7 @@ class App extends Component {
 					      <Route exact path="/" render={ ()=> ( <Redirect to="/basic" />)} />
 					      <Route path="/basic" component={Basic} />
 					      <Route path="/params" component={Params} />
+					      <Route path="/auth" component={Auth} />
 				      </Switch>
 							
 				    </div>
