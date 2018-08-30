@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import {  Route, Link } from "react-router-dom";
 import Topic from './Topic';
 class Topics extends Component {
 	render() {

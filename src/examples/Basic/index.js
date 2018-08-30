@@ -10,21 +10,21 @@ class BasicExample extends Component{
 			    <div>
 			      <ul>
 			        <li>
-			          <Link to="/">Home</Link>
+			          <Link to={`${this.props.match.url}`}>Home</Link>
 			        </li>
 			        <li>
-			          <Link to="/about">About</Link>
+			          <Link to={`${this.props.match.url}/about`}>About</Link>
 			        </li>
 			        <li>
-			          <Link to="/topics">Topics</Link>
+			          <Link to={`${this.props.match.url}/topics`}>Topics</Link>
 			        </li>
 			      </ul>
 			
 			      <hr />
 			
-			      <Route exact path="/" component={Home} />
-			      <Route path="/about" component={About} />
-			      <Route path="/topics" component={Topics} />
+			      <Route exact path={`${this.props.match.url}`} component={Home} />
+			      <Route path={`${this.props.match.url}/about`} component={About} />
+			      <Route path={`${this.props.match.url}/topics`} component={Topics} />
 			    </div>
 			  </Router>
 		)
