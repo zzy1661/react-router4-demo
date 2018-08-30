@@ -6,7 +6,7 @@ import Topics from './Topics';
 class BasicExample extends Component{ 
 	render()  {
 		return (
-			<Router>
+		
 			    <div>
 			      <ul>
 			        <li>
@@ -26,7 +26,7 @@ class BasicExample extends Component{
 			      <Route path={`${this.props.match.url}/about`} component={About} />
 			      <Route path={`${this.props.match.url}/topics`} component={Topics} />
 			    </div>
-			  </Router>
+			 
 		)
 	  
 	}
