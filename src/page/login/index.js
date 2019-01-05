@@ -4,6 +4,16 @@ import './index.css';
 import logo from '../../logo.svg';
 
 class Login extends Component {
+  componentDidMount() {
+
+    var session = sessionStorage.getItem('user');
+    if(session) {
+      this.props.history.push('/index')
+    }else {
+      sessionStorage.setItem('user','user');
+    }
+     
+  }
   render() {
     return (
       <div className="login">

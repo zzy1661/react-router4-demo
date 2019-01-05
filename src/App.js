@@ -8,10 +8,11 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-			    <Switch>			     
+			    <Switch>
+            <Redirect exact from="/" to="/index"></Redirect>			     
 			      <Route path="/login" component={Login} />
 			      <Route path="/index" component={Index} />
-			     
+			     <Redirect to="/"></Redirect>
 			    </Switch>
 			  </Router>
       </div>

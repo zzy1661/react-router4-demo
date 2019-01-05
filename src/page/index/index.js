@@ -11,6 +11,15 @@ const topics = {
 }
 class Index extends Component {
 
+  componentDidMount() {
+    var session = sessionStorage.getItem('user');
+    if(!session) {
+      this.props.history.push('/login')
+    }
+  }
+  clearSession() {
+    sessionStorage.clear();
+  }
   render() {
     return (
       <div className="index">
@@ -19,6 +28,7 @@ class Index extends Component {
 				   		<Link to={`${this.props.match.url}/technology`}>technology</Link>
 				   		<Link to={`${this.props.match.url}/book`}>book</Link>
 				   		<Link to={`${this.props.match.url}/author`}>author</Link>
+               <button onClick={this.clearSession}>clear session</button>
 	        </nav>
         </header>
         <Route path={`${this.props.match.url}/:topic`} 
